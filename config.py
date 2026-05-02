@@ -1,0 +1,13 @@
+# config.py
+
+CITY = "Lahore, Punjab, Pakistan"
+
+H3_RESOLUTION = 8
+
+MAX_RETRIES = 3
+OVERPASS_SLEEP = 2
+
+CRS_WGS84 = "EPSG:4326"
+CRS_PROJECTED = "EPSG:3857"
+
+KNN_K = 5
