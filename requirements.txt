@@ -1,0 +1,31 @@
+# Geospatial AI Site Selection — Lahore Luxury Cafés
+# Python 3.10+ recommended.
+#
+# Windows note: geopandas pulls in GDAL/Fiona, which is frequently painful to
+# install via plain pip on Windows. If `pip install -r requirements.txt` fails
+# on geopandas, install it via conda first, then pip install the rest:
+#   conda install -c conda-forge geopandas
+#   pip install -r requirements.txt --no-deps  (or just remove the geopandas line below first)
+
+# --- Core data handling ---
+pandas>=2.0
+numpy>=1.24
+
+# --- Geospatial ---
+h3>=4.0              # Uber H3 hexagonal grid indexing
+geopandas>=0.14      # spatial joins, CRS handling, polygon overlap (spatial mask)
+shapely>=2.0         # geometry objects used by geopandas
+pyproj>=3.5          # CRS transforms (EPSG:4326 <-> EPSG:3857 / UTM)
+scipy>=1.10           # scipy.spatial.cKDTree for nearest-neighbor / radius queries
+requests>=2.31        # direct Overpass API calls
+
+# --- Modeling ---
+scikit-learn>=1.3    # Logistic Regression baseline, train/test utilities
+xgboost>=2.0          # PU-learning proposed model (Spy + Weighted Bagging)
+shap>=0.44             # SHAP explainability for the final model
+joblib>=1.3            # model persistence (lr_baseline.pkl)
+
+# --- Visualization / map output ---
+matplotlib>=3.7        # PR-AUC and feature-importance plots
+folium>=0.15            # interactive Folium map (lahore_site_map.html)
+branca>=0.7              # Folium's colormap/styling dependency
